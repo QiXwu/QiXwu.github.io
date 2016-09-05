@@ -15,28 +15,16 @@
 
 
 
-<meta name="description" content="wpa_supplicant 编译遇到的问题一、编译需要用到三个库源码包，分别是wpa_supplicant, openssl, libnl
-
-wpa_supplicant是我们需要编译的源文件包，目前最新版本是1.1。在终端命令行下输入： wget http://hostap.epitest.fi/releases/wpa_supplicant-1.1.tar.gz进行下载。
-
-openssl是">
+<meta name="description" content="云神掉渣天啦">
 <meta property="og:type" content="article">
-<meta property="og:title" content="wpa_supplicant 编译相关">
-<meta property="og:url" content="http://yoursite.com/2016/09/04/wpa-supplicant-编译相关/index.html">
+<meta property="og:title" content="9.5">
+<meta property="og:url" content="http://yoursite.com/2016/09/05/9-5/index.html">
 <meta property="og:site_name" content="膜拜云神">
-<meta property="og:description" content="wpa_supplicant 编译遇到的问题一、编译需要用到三个库源码包，分别是wpa_supplicant, openssl, libnl
-
-wpa_supplicant是我们需要编译的源文件包，目前最新版本是1.1。在终端命令行下输入： wget http://hostap.epitest.fi/releases/wpa_supplicant-1.1.tar.gz进行下载。
-
-openssl是">
-<meta property="og:updated_time" content="2016-09-05T06:15:21.250Z">
+<meta property="og:description" content="云神掉渣天啦">
+<meta property="og:updated_time" content="2016-09-05T06:24:26.029Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wpa_supplicant 编译相关">
-<meta name="twitter:description" content="wpa_supplicant 编译遇到的问题一、编译需要用到三个库源码包，分别是wpa_supplicant, openssl, libnl
-
-wpa_supplicant是我们需要编译的源文件包，目前最新版本是1.1。在终端命令行下输入： wget http://hostap.epitest.fi/releases/wpa_supplicant-1.1.tar.gz进行下载。
-
-openssl是">
+<meta name="twitter:title" content="9.5">
+<meta name="twitter:description" content="云神掉渣天啦">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -68,7 +56,7 @@ openssl是">
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>wpa_supplicant 编译相关 | 膜拜云神</title>
+<title>9.5 | 膜拜云神</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -253,11 +241,11 @@ openssl是">
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-wpa-supplicant-编译相关" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-9-5" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/04/wpa-supplicant-编译相关/" class="article-date">
-      <time datetime="2016-09-04T07:15:38.000Z" itemprop="datePublished">2016-09-04</time>
+      <a href="/2016/09/05/9-5/" class="article-date">
+      <time datetime="2016-09-05T06:24:26.000Z" itemprop="datePublished">2016-09-05</time>
 </a>
 
 
@@ -272,7 +260,7 @@ openssl是">
         
   
     <h1 class="article-title" itemprop="name">
-      wpa_supplicant 编译相关
+      9.5
     </h1>
   
 
@@ -282,10 +270,6 @@ openssl是">
         
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/authentication/">authentication</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -293,41 +277,7 @@ openssl是">
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="wpa-supplicant-编译遇到的问题"><a href="#wpa-supplicant-编译遇到的问题" class="headerlink" title="wpa_supplicant 编译遇到的问题"></a>wpa_supplicant 编译遇到的问题</h2><p>一、编译需要用到三个库源码包，分别是wpa_supplicant, openssl, libnl</p>
-<ol>
-<li><p>wpa_supplicant是我们需要编译的源文件包，目前最新版本是1.1。在终端命令行下输入： <code>wget http://hostap.epitest.fi/releases/wpa_supplicant-1.1.tar.gz</code>进行下载。</p>
-</li>
-<li><p>openssl是ssl协议的开源库，wpa_supplicant文档中声明支持的是0.9.8d版本，在实践中最新的1.0.1c版本也能通过编译。在终端命令行下输入：<code>wget http://openssl.org/source/openssl-1.0.1c.tar.gz</code> 进行下载。</p>
-</li>
-<li><p>libnl也是需要的，在编译中我首先尝试的是libnl3，在编译过程中发现它的接口和wpa_supplicant调用的已经有了变化，所以改成较早的libnl1.1。同样，在终端命令行下输入：<code>wget http://www.infradead.org/~tgr/libnl/files/libnl-1.1.tar.gz</code>下载它。</p>
-</li>
-</ol>
-<p>二、下载完成并解压三个库的源代码，下面可以开始编译：</p>
-<h3 id="1-编译libnl"><a href="#1-编译libnl" class="headerlink" title="1.编译libnl."></a>1.编译libnl.</h3><p>1.1 tar zxvf libnl-1.1.tar.gz 解压源代码包。进入libnl1.1目录，执行 ./configure 配置编译环境；</p>
-<p>1.2 执行make进行编译，这时会报出编译错误：“../include/netlink_local.h:218:error ‘ULONG_MAX’ undeclared”，在对应文件添加一个头文件  #include&lt; imits.h&gt; 即可解决问题；</p>
-<p>1.3 再次编译通过，执行sudo make install，libnl.so会被安装至/usr/local/lib/目录下，相应的头文件也会被copy到/usr/local/include/netlink下。</p>
-<h3 id="2-编译openssl"><a href="#2-编译openssl" class="headerlink" title="2. 编译openssl"></a>2. 编译openssl</h3><p>2.1进入openssl目录，执行make进行编译，完成后执行make install，编译好的openssl库和头文件等被安装在目录/usr/local/ssl下</p>
-<p>Linux下编译安装openssl1.0.1c时遇到的问题</p>
-<p><strong>undefined reference to `rc4_md5_enc’</strong></p>
-<pre><code>1.make clean清理一下
-2.执行 ./config --prefix=/usr/local --openssldir=/usr/local/openssl
-3.重新编译make;make test;make install
-</code></pre><p><strong>POD document had syntax errors at /usr/bin/pod2man line 71.</strong></p>
-<pre><code>make： *** ［install_docs］ 错误 255
-原因分析：这是由于OpenSSL 1.0.1e 与 perl5.18 不兼容。
-解决方法：
-1、有人验证 安装perl 5.16 可以兼容，安排低版本perl 5.16可以解决问题。
-2、删除 pod2man文件：
-sudo rm /usr/bin/pod2man
-</code></pre><h3 id="3-编译wpa-supplicant"><a href="#3-编译wpa-supplicant" class="headerlink" title="3. 编译wpa_supplicant"></a>3. 编译wpa_supplicant</h3><p>3.1 进入hostapd/wpa_supplicant目录，首先执行cp defconfig .config 拷贝生成编译配置</p>
-<p>3.2 修改配置文件 .config，在”#Uncomment following two linee and fix…”下增加如下语句，用来添加openssl和libnl的头文件和库文件目录，更新编译链接环境变量</p>
-<pre><code>CFLAGS += -I/usr/local/openssl/include
-CFLAGS += -I/usr/local/include/netlink
-LIBS += -L/usr/local/openssl/lib                                            
-LIBS += -L/usr/local/lib     
-LIBS_p += -L/usr/local/lib 
-</code></pre><p>3.3 执行make进行编译，成功后生成三个目标文件wpa_supplicant, wpa_cli, wpa_passphrase，至此编译完成。</p>
-
+        
       
     </div>
     
@@ -335,13 +285,13 @@ LIBS_p += -L/usr/local/lib
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/09/04/wpa-supplicant-编译相关/">wpa_supplicant 编译相关</a></p>
+        <p><span>本文标题:</span><a href="/2016/09/05/9-5/">9.5</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">VaychLain</a></p>
-        <p><span>发布时间:</span>2016-09-04, 15:15:38</p>
-        <p><span>最后更新:</span>2016-09-05, 14:15:21</p>
+        <p><span>发布时间:</span>2016-09-05, 14:24:26</p>
+        <p><span>最后更新:</span>2016-09-05, 14:24:26</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/09/04/wpa-supplicant-编译相关/" title="wpa_supplicant 编译相关">http://yoursite.com/2016/09/04/wpa-supplicant-编译相关/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/09/04/wpa-supplicant-编译相关/　　作者: VaychLain" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/09/05/9-5/" title="9.5">http://yoursite.com/2016/09/05/9-5/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/09/05/9-5/　　作者: VaychLain" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -353,16 +303,10 @@ LIBS_p += -L/usr/local/lib
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/09/05/9-5/">
-                    9.5
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/02/hello-world/">
-                    Hello World
+                <a href="/2016/09/04/wpa-supplicant-编译相关/">
+                    wpa_supplicant 编译相关
                 </a>
             </div>
         
@@ -374,7 +318,7 @@ LIBS_p += -L/usr/local/lib
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#wpa-supplicant-编译遇到的问题"><span class="toc-number">1.</span> <span class="toc-text">wpa_supplicant 编译遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-编译libnl"><span class="toc-number">1.1.</span> <span class="toc-text">1.编译libnl.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-编译openssl"><span class="toc-number">1.2.</span> <span class="toc-text">2. 编译openssl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-编译wpa-supplicant"><span class="toc-number">1.3.</span> <span class="toc-text">3. 编译wpa_supplicant</span></a></li></ol></li></ol>
+            
         
     </div>
     <style>
@@ -410,7 +354,7 @@ LIBS_p += -L/usr/local/lib
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"wpa_supplicant 编译相关　| 膜拜云神　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"9.5　| 膜拜云神　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -430,15 +374,13 @@ LIBS_p += -L/usr/local/lib
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/09/05/9-5/" title="上一篇: 9.5">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/09/02/hello-world/" title="下一篇: Hello World">
+            <a href="/2016/09/04/wpa-supplicant-编译相关/" title="下一篇: wpa_supplicant 编译相关">
                 <i class="fa fa-angle-right"></i>
             </a>
         
