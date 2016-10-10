@@ -17,20 +17,20 @@
 
 <meta name="description" content="编译openssl
 OpenSSL的宏定义和VS的wincrypt.h的宏定义冲突，需要按以下方法取消宏定义。在 \include\openssl\x509v3.h 里添加：
-123456ifdef OPENSSL_SYS_WIN32 /* Under Win32 these are defined in wincrypt.h */ undef X509_NAME undef X509_CERT_">
+123456#ifdef OPENSSL_SYS_WIN32 /* Under Win32 these are defined in wincrypt.h */ #undef X509_NAME #undef X509_CE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows 下编译wpa_supplicant">
 <meta property="og:url" content="http://yoursite.com/2016/09/26/Windows-下编译wpa-supplicant/index.html">
 <meta property="og:site_name" content="膜拜云神">
 <meta property="og:description" content="编译openssl
 OpenSSL的宏定义和VS的wincrypt.h的宏定义冲突，需要按以下方法取消宏定义。在 \include\openssl\x509v3.h 里添加：
-123456ifdef OPENSSL_SYS_WIN32 /* Under Win32 these are defined in wincrypt.h */ undef X509_NAME undef X509_CERT_">
-<meta property="og:updated_time" content="2016-09-26T08:03:19.729Z">
+123456#ifdef OPENSSL_SYS_WIN32 /* Under Win32 these are defined in wincrypt.h */ #undef X509_NAME #undef X509_CE">
+<meta property="og:updated_time" content="2016-10-10T02:54:04.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows 下编译wpa_supplicant">
 <meta name="twitter:description" content="编译openssl
 OpenSSL的宏定义和VS的wincrypt.h的宏定义冲突，需要按以下方法取消宏定义。在 \include\openssl\x509v3.h 里添加：
-123456ifdef OPENSSL_SYS_WIN32 /* Under Win32 these are defined in wincrypt.h */ undef X509_NAME undef X509_CERT_">
+123456#ifdef OPENSSL_SYS_WIN32 /* Under Win32 these are defined in wincrypt.h */ #undef X509_NAME #undef X509_CE">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -289,7 +289,7 @@ OpenSSL的宏定义和VS的wincrypt.h的宏定义冲突，需要按以下方法�
           
         <h2 id="编译openssl"><a href="#编译openssl" class="headerlink" title="编译openssl"></a>编译openssl</h2><ul>
 <li><p>OpenSSL的宏定义和VS的wincrypt.h的宏定义冲突，需要按以下方法取消宏定义。<br>在 <code>\include\openssl\x509v3.h</code> 里添加：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ifdef OPENSSL_SYS_WIN32 </div><div class="line"><span class="comment">/* Under Win32 these are defined in wincrypt.h */</span> </div><div class="line">undef X509_NAME </div><div class="line">undef X509_CERT_PAIR </div><div class="line">undef X509_EXTENSIONS </div><div class="line">endif</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> OPENSSL_SYS_WIN32 </span></div><div class="line"><span class="comment">/* Under Win32 these are defined in wincrypt.h */</span> </div><div class="line"><span class="meta">#<span class="meta-keyword">undef</span> X509_NAME </span></div><div class="line"><span class="meta">#<span class="meta-keyword">undef</span> X509_CERT_PAIR </span></div><div class="line"><span class="meta">#<span class="meta-keyword">undef</span> X509_EXTENSIONS </span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
 </li>
 <li><p>安装ActivePerl，打开VS命令提示行，进入OpenSSL路径，依次输入以下命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">perl Configure VC-WIN32 no-asm --prefix= C:\dev\OpenSSL </div><div class="line">ms\do_ms </div><div class="line">nmake -f ms\ntdll.mak </div><div class="line">nmake -f ms\ntdll.mak install</div></pre></td></tr></table></figure>
@@ -317,12 +317,38 @@ OpenSSL的宏定义和VS的wincrypt.h的宏定义冲突，需要按以下方法�
 </ul>
 </li>
 </ul>
-<ul>
+<h2 id="运行WPA-Supplicant"><a href="#运行WPA-Supplicant" class="headerlink" title="运行WPA Supplicant"></a>运行WPA Supplicant</h2><ul>
 <li><p>关于debug时 Libeay32.dll、ssleay32.dll丢失问题</p>
 <p>从openssl 的out目录中将其复制到system32目录下，执行 :</p>
 <p><code>for %1 in (%windir%\system32\*.dll) do regsvr32.exe /s %1</code></p>
 </li>
+<li><p>debug时出现 <code>Binary was not built with debug information.</code></p>
+</li>
 </ul>
+<p>这是由于链接的库无法输出debug信息，可以不用理会，不调试运行即可</p>
+<ul>
+<li>关于wpa_supplicant 运行时参数：<ul>
+<li>-d = 输出 debug信息</li>
+<li>-D = 指定驱动</li>
+<li>-B = 后台运行</li>
+<li>-c = 配置文件</li>
+<li>-i = 接口名称 </li>
+</ul>
+</li>
+</ul>
+<p>在接口输入错误时会出现 <code>Failed to initialize driver interface</code>,其中,可以使用win_if_list.exe 来找出正确的接口名称</p>
+<p>Example steps in starting up wpa_supplicant:</p>
+<p><code>&gt; win_if_list.exe</code></p>
+<blockquote>
+<p>ifname: \Device\NPF_GenericNdisWanAdapter</p>
+<p>description: Generic NdisWan adapter</p>
+<p>ifname: \Device\NPF_{769E012B-FD17-4935-A5E3-8090C38E25D2}</p>
+<p>description: Atheros Wireless Network Adapter (Microsoft’s Packet Scheduler)</p>
+<p>ifname: \Device\NPF_{732546E7-E26C-48E3-9871-7537B020A211}</p>
+<p>description: Intel 8255x-based Integrated Fast Ethernet (Microsoft’s Packet Scheduler)</p>
+</blockquote>
+<p>Since the example configuration used Atheros WLAN card, the middle one is the correct interface in this case.In other words, wpa_supplicant would be started with the following command:</p>
+<p><code># wpa_supplicant.exe -i&#39;{769E012B-FD17-4935-A5E3-8090C38E25D2}&#39; -c wpa_supplicant.conf -d</code></p>
 
       
     </div>
@@ -334,7 +360,7 @@ OpenSSL的宏定义和VS的wincrypt.h的宏定义冲突，需要按以下方法�
         <p><span>本文标题:</span><a href="/2016/09/26/Windows-下编译wpa-supplicant/">Windows 下编译wpa_supplicant</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">VaychLain</a></p>
         <p><span>发布时间:</span>2016-09-26, 15:49:05</p>
-        <p><span>最后更新:</span>2016-09-26, 16:03:19</p>
+        <p><span>最后更新:</span>2016-10-10, 10:54:04</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/09/26/Windows-下编译wpa-supplicant/" title="Windows 下编译wpa_supplicant">http://yoursite.com/2016/09/26/Windows-下编译wpa-supplicant/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/09/26/Windows-下编译wpa-supplicant/　　作者: VaychLain" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -351,8 +377,8 @@ OpenSSL的宏定义和VS的wincrypt.h的宏定义冲突，需要按以下方法�
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/05/9-5/">
-                    9.5
+                <a href="/2016/09/04/wpa-supplicant-编译相关/">
+                    wpa_supplicant 编译相关
                 </a>
             </div>
         
@@ -364,7 +390,7 @@ OpenSSL的宏定义和VS的wincrypt.h的宏定义冲突，需要按以下方法�
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#编译openssl"><span class="toc-number">1.</span> <span class="toc-text">编译openssl</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#可能遇到的错误"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">可能遇到的错误</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译WPA-Supplicant"><span class="toc-number">2.</span> <span class="toc-text">编译WPA Supplicant</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#编译openssl"><span class="toc-number">1.</span> <span class="toc-text">编译openssl</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#可能遇到的错误"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">可能遇到的错误</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译WPA-Supplicant"><span class="toc-number">2.</span> <span class="toc-text">编译WPA Supplicant</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行WPA-Supplicant"><span class="toc-number">3.</span> <span class="toc-text">运行WPA Supplicant</span></a></li></ol>
         
     </div>
     <style>
@@ -426,13 +452,13 @@ OpenSSL的宏定义和VS的wincrypt.h的宏定义冲突，需要按以下方法�
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/09/05/9-5/" title="下一篇: 9.5">
+            <a href="/2016/09/04/wpa-supplicant-编译相关/" title="下一篇: wpa_supplicant 编译相关">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/26/Windows-下编译wpa-supplicant/">Windows 下编译wpa_supplicant</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/05/9-5/">9.5</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/04/wpa-supplicant-编译相关/">wpa_supplicant 编译相关</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/test/">test</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/26/Windows-下编译wpa-supplicant/">Windows 下编译wpa_supplicant</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/04/wpa-supplicant-编译相关/">wpa_supplicant 编译相关</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/hello-world/">Hello World</a></li></ul>
 
 
 

@@ -278,7 +278,7 @@
           
         <h2 id="编译openssl"><a href="#编译openssl" class="headerlink" title="编译openssl"></a>编译openssl</h2><ul>
 <li><p>OpenSSL的宏定义和VS的wincrypt.h的宏定义冲突，需要按以下方法取消宏定义。<br>在 <code>\include\openssl\x509v3.h</code> 里添加：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ifdef OPENSSL_SYS_WIN32 </div><div class="line"><span class="comment">/* Under Win32 these are defined in wincrypt.h */</span> </div><div class="line">undef X509_NAME </div><div class="line">undef X509_CERT_PAIR </div><div class="line">undef X509_EXTENSIONS </div><div class="line">endif</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> OPENSSL_SYS_WIN32 </span></div><div class="line"><span class="comment">/* Under Win32 these are defined in wincrypt.h */</span> </div><div class="line"><span class="meta">#<span class="meta-keyword">undef</span> X509_NAME </span></div><div class="line"><span class="meta">#<span class="meta-keyword">undef</span> X509_CERT_PAIR </span></div><div class="line"><span class="meta">#<span class="meta-keyword">undef</span> X509_EXTENSIONS </span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
 </li>
 <li><p>安装ActivePerl，打开VS命令提示行，进入OpenSSL路径，依次输入以下命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">perl Configure VC-WIN32 no-asm --prefix= C:\dev\OpenSSL </div><div class="line">ms\do_ms </div><div class="line">nmake -f ms\ntdll.mak </div><div class="line">nmake -f ms\ntdll.mak install</div></pre></td></tr></table></figure>
@@ -306,12 +306,38 @@
 </ul>
 </li>
 </ul>
-<ul>
+<h2 id="运行WPA-Supplicant"><a href="#运行WPA-Supplicant" class="headerlink" title="运行WPA Supplicant"></a>运行WPA Supplicant</h2><ul>
 <li><p>关于debug时 Libeay32.dll、ssleay32.dll丢失问题</p>
 <p>从openssl 的out目录中将其复制到system32目录下，执行 :</p>
 <p><code>for %1 in (%windir%\system32\*.dll) do regsvr32.exe /s %1</code></p>
 </li>
+<li><p>debug时出现 <code>Binary was not built with debug information.</code></p>
+</li>
 </ul>
+<p>这是由于链接的库无法输出debug信息，可以不用理会，不调试运行即可</p>
+<ul>
+<li>关于wpa_supplicant 运行时参数：<ul>
+<li>-d = 输出 debug信息</li>
+<li>-D = 指定驱动</li>
+<li>-B = 后台运行</li>
+<li>-c = 配置文件</li>
+<li>-i = 接口名称 </li>
+</ul>
+</li>
+</ul>
+<p>在接口输入错误时会出现 <code>Failed to initialize driver interface</code>,其中,可以使用win_if_list.exe 来找出正确的接口名称</p>
+<p>Example steps in starting up wpa_supplicant:</p>
+<p><code>&gt; win_if_list.exe</code></p>
+<blockquote>
+<p>ifname: \Device\NPF_GenericNdisWanAdapter</p>
+<p>description: Generic NdisWan adapter</p>
+<p>ifname: \Device\NPF_{769E012B-FD17-4935-A5E3-8090C38E25D2}</p>
+<p>description: Atheros Wireless Network Adapter (Microsoft’s Packet Scheduler)</p>
+<p>ifname: \Device\NPF_{732546E7-E26C-48E3-9871-7537B020A211}</p>
+<p>description: Intel 8255x-based Integrated Fast Ethernet (Microsoft’s Packet Scheduler)</p>
+</blockquote>
+<p>Since the example configuration used Atheros WLAN card, the middle one is the correct interface in this case.In other words, wpa_supplicant would be started with the following command:</p>
+<p><code># wpa_supplicant.exe -i&#39;{769E012B-FD17-4935-A5E3-8090C38E25D2}&#39; -c wpa_supplicant.conf -d</code></p>
 
       
     </div>
@@ -325,61 +351,6 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/authentication/">authentication</a></li></ul>
     </div>
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-9-5" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/05/9-5/" class="article-date">
-      <time datetime="2016-09-05T06:24:26.000Z" itemprop="datePublished">2016-09-05</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/05/9-5/">9.5</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
       
       <div class="clearfix"></div>
     </div>
@@ -528,67 +499,6 @@ LIBS_p += -L/usr/local/lib
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/01/test/" class="article-date">
-      <time datetime="2016-09-01T08:27:12.000Z" itemprop="datePublished">2016-09-01</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/01/test/">test</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <ul>
-<li>test blog</li>
-</ul>
-<ul>
-<li>在确定localhost/127.0.0.1能用的前提下，是因为端口冲突的问题，在博客文件夹server模块下找到hexo\node_modules\hexo-server\index.js，然后修改里面的port</li>
-</ul>
 
       
     </div>
