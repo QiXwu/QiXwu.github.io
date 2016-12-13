@@ -15,25 +15,25 @@
 
 
 
-<meta name="description" content="test blog
+<meta name="description" content="一、编译需要用到三个库源码包，分别是wpa_supplicant, openssl, libnl
 
-
-在确定localhost/127.0.0.1能用的前提下，是因为端口冲突的问题，在博客文件夹server模块下找到hexo\node_modules\hexo-server\index.js，然后修改里面的port">
+wpa_supplicant是我们需要编译的源文件包，目前最新版本是1.1。在终端命令行下输入： wget http://hostap.epitest.fi/releases/wpa_supplicant-1.1.tar.gz 进行下载。
+openssl是ssl协议的开源库，wpa_supplica">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test">
-<meta property="og:url" content="http://yoursite.com/2016/09/01/test/index.html">
+<meta property="og:title" content="Linux下编译wpa_supplicant">
+<meta property="og:url" content="http://yoursite.com/2016/12/13/Linux下编译wpa-supplicant/index.html">
 <meta property="og:site_name" content="膜拜云神">
-<meta property="og:description" content="test blog
+<meta property="og:description" content="一、编译需要用到三个库源码包，分别是wpa_supplicant, openssl, libnl
 
-
-在确定localhost/127.0.0.1能用的前提下，是因为端口冲突的问题，在博客文件夹server模块下找到hexo\node_modules\hexo-server\index.js，然后修改里面的port">
-<meta property="og:updated_time" content="2016-09-02T09:29:01.706Z">
+wpa_supplicant是我们需要编译的源文件包，目前最新版本是1.1。在终端命令行下输入： wget http://hostap.epitest.fi/releases/wpa_supplicant-1.1.tar.gz 进行下载。
+openssl是ssl协议的开源库，wpa_supplica">
+<meta property="og:updated_time" content="2016-12-13T07:58:19.841Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="test">
-<meta name="twitter:description" content="test blog
+<meta name="twitter:title" content="Linux下编译wpa_supplicant">
+<meta name="twitter:description" content="一、编译需要用到三个库源码包，分别是wpa_supplicant, openssl, libnl
 
-
-在确定localhost/127.0.0.1能用的前提下，是因为端口冲突的问题，在博客文件夹server模块下找到hexo\node_modules\hexo-server\index.js，然后修改里面的port">
+wpa_supplicant是我们需要编译的源文件包，目前最新版本是1.1。在终端命令行下输入： wget http://hostap.epitest.fi/releases/wpa_supplicant-1.1.tar.gz 进行下载。
+openssl是ssl协议的开源库，wpa_supplica">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -65,7 +65,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>test | 膜拜云神</title>
+<title>Linux下编译wpa_supplicant | 膜拜云神</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -142,11 +142,11 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>菜單</li>
+                        <li>標籤</li>
                         
                         
-                        <li>关于我</li>
+                        <li>關於我</li>
                         
                     </ul>
                 </div>
@@ -185,7 +185,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/authentication/">authentication</a></li></ul>
+                        
                     </div>
                 </section>
                 
@@ -248,13 +248,13 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
 </nav>
-      <div class="body-wrap"><article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Linux下编译wpa-supplicant" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/01/test/" class="article-date">
-      <time datetime="2016-09-01T08:27:12.000Z" itemprop="datePublished">2016-09-01</time>
+      <a href="/2016/12/13/Linux下编译wpa-supplicant/" class="article-date">
+      <time datetime="2016-12-13T07:56:39.000Z" itemprop="datePublished">2016-12-13</time>
 </a>
 
 
@@ -269,7 +269,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      test
+      Linux下编译wpa_supplicant
     </h1>
   
 
@@ -286,12 +286,36 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <ul>
-<li>test blog</li>
-</ul>
-<ul>
-<li>在确定localhost/127.0.0.1能用的前提下，是因为端口冲突的问题，在博客文件夹server模块下找到hexo\node_modules\hexo-server\index.js，然后修改里面的port</li>
-</ul>
+        <p>一、编译需要用到三个库源码包，分别是wpa_supplicant, openssl, libnl</p>
+<ol>
+<li>wpa_supplicant是我们需要编译的源文件包，目前最新版本是1.1。在终端命令行下输入： wget <a href="http://hostap.epitest.fi/releases/wpa_supplicant-1.1.tar.gz" target="_blank" rel="external">http://hostap.epitest.fi/releases/wpa_supplicant-1.1.tar.gz</a> 进行下载。</li>
+<li>openssl是ssl协议的开源库，wpa_supplicant文档中声明支持的是0.9.8d版本，在实践中最新的1.0.1c版本也能通过编译。在终端命令行下输入： <a href="http://openssl.org/source/openssl-1.0.1c.tar.gz" target="_blank" rel="external">http://openssl.org/source/openssl-1.0.1c.tar.gz</a> 进行下载。</li>
+<li>libnl也是需要的，在编译中我首先尝试的是libnl3，在编译过程中发现它的接口和wpa_supplicant调用的已经有了变化，所以改成较早的libnl1.1。同样，在终端命令行下输入：wget <a href="http://www.infradead.org/~tgr/libnl/files/libnl-1.1.tar.gz" target="_blank" rel="external">http://www.infradead.org/~tgr/libnl/files/libnl-1.1.tar.gz</a> 下载它。</li>
+</ol>
+<p>二、下载完成并解压三个库的源代码，下面可以开始编译：</p>
+<ol>
+<li>编译libnl. </li>
+</ol>
+<p>1.1 tar zxvf libnl-1.1.tar.gz 解压源代码包。进入libnl1.1目录，执行 ./configure 配置编译环境；</p>
+<p>1.2 执行make进行编译，这时会报出编译错误：“../include/netlink_local.h:218:error ‘ULONG_MAX’ undeclared”，在对应文件添加一个头文件<br><code>#include &lt;limits.h&gt;</code>即可解决问题；</p>
+<p>1.3 再次编译通过，执行sudo make install，libnl.so会被安装至/usr/local/lib/目录下，相应的头文件也会被copy到/usr/local/include/netlink下。</p>
+<ol>
+<li>编译openssl</li>
+</ol>
+<p>2.1进入openssl目录，执行make进行编译，完成后执行make install，编译好的openssl库和头文件等被安装在目录/usr/local/ssl下</p>
+<p>Linux下编译安装openssl1.0.1e时遇到的问题</p>
+<p> undefined reference to `rc4_md5_enc’</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1.make clean清理一下</div><div class="line">2.执行 ./config --prefix=/usr/<span class="built_in">local</span> --openssldir=/usr/<span class="built_in">local</span>/openssl</div><div class="line">3.重新编译make;make <span class="built_in">test</span>;make install</div><div class="line">--prefix是指定include和lib install路径 </div><div class="line">--openssldir是指定bin  certs  man  misc  openssl.cnf  private的安装路径</div></pre></td></tr></table></figure>
+<p> POD document had syntax errors at /usr/bin/pod2man line 71.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">make： *** ［install_docs］ 错误 255</div><div class="line">原因分析：这是由于OpenSSL 1.0.1e 与 perl5.18 不兼容。</div><div class="line">解决方法：</div><div class="line">1、有人验证 安装perl 5.16 可以兼容，安排低版本perl 5.16可以解决问题。</div><div class="line">2、删除 pod2man文件：</div><div class="line">sudo rm /usr/bin/pod2man</div></pre></td></tr></table></figure>
+<ol>
+<li>编译wpa_supplicant</li>
+</ol>
+<p>3.1 进入hostapd/wpa_supplicant目录，首先执行cp defconfig .config 拷贝生成编译配置</p>
+<p>3.2 修改配置文件 .config，在”#Uncomment following two linee and fix…”下增加如下语句，用来添加openssl和libnl的头文件和库文件目录，更新编译链接环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CFLAGS += -I/usr/local/include/openssl</div><div class="line">CFLAGS += -I/usr/local/include/netlink</div><div class="line">LIBS += -L/usr/local/lib</div><div class="line">LIBS_p += -L/usr/local/lib</div></pre></td></tr></table></figure>
+<p>3.3 执行make进行编译，成功后生成三个目标文件wpa_supplicant, wpa_cli, wpa_passphrase，至此编译完成。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/usr/local/ssl/lib/libcrypto.a(dso_dlfcn.o): In function `dlfcn_globallookup&apos;: dso_dlfcn.c:(.text+0x21): undefined reference to `dlopen&apos; dso_dlfcn.c:(.text+0x34): undefined reference to `dlsym&apos; dso_dlfcn.c:(.text+0x3f): undefined reference to `dlclose&apos;</div><div class="line">/usr/local/ssl/lib/libcrypto.a(dso_dlfcn.o): In function `dlfcn_bind_func&apos;:</div><div class="line">dso_dlfcn.c:(.text+0x354): undefined reference to `dlsym&apos;</div><div class="line">dso_dlfcn.c:(.text+0x3fb): undefined reference to `dlerror&apos;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -300,17 +324,17 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/09/01/test/">test</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">VaychLain</a></p>
-        <p><span>发布时间:</span>2016-09-01, 16:27:12</p>
-        <p><span>最后更新:</span>2016-09-02, 17:29:01</p>
+        <p><span>本文標題:</span><a href="/2016/12/13/Linux下编译wpa-supplicant/">Linux下编译wpa_supplicant</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主頁">VaychLain</a></p>
+        <p><span>發布時間:</span>2016-12-13, 15:56:39</p>
+        <p><span>最後更新:</span>2016-12-13, 15:58:19</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/09/01/test/" title="test">http://yoursite.com/2016/09/01/test/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/09/01/test/　　作者: VaychLain" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始鏈接:</span><a class="post-url" href="/2016/12/13/Linux下编译wpa-supplicant/" title="Linux下编译wpa_supplicant">http://yoursite.com/2016/12/13/Linux下编译wpa-supplicant/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/12/13/Linux下编译wpa-supplicant/　　作者: VaychLain" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"姓名標示-非商業性-相同方式分享 4.0 國際"</a> 轉載請保留原文鏈接及作者。
         </p>
     </div>
 
@@ -319,11 +343,17 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/09/02/hello-world/">
-                    Hello World
+                <a href="/2016/12/13/Socket多线程通信/">
+                    Socket多线程通信
                 </a>
             </div>
         
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/12/13/windows下编译wpa-supplicant/">
+                    windows下编译wpa_supplicant
+                </a>
+            </div>
         
     </nav>
 
@@ -331,7 +361,7 @@
 </article>
 
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">文章目錄</strong>
         
             
         
@@ -347,10 +377,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+    <input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
 
     <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+        yiliaConfig.toc = ["隱藏目錄", "顯示目錄", !!"false"];
     </script>
 
 
@@ -369,7 +399,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"test　| 膜拜云神　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Linux下编译wpa_supplicant　| 膜拜云神　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -389,7 +419,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/09/02/hello-world/" title="上一篇: Hello World">
+            <a href="/2016/12/13/Socket多线程通信/" title="上一篇: Socket多线程通信">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -397,11 +427,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2016/12/13/windows下编译wpa-supplicant/" title="下一篇: windows下编译wpa_supplicant">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/26/Windows-下编译wpa-supplicant/">Windows 下编译wpa_supplicant</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/05/9-5/">9.5</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/04/wpa-supplicant-编译相关/">wpa_supplicant 编译相关</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/01/test/">test</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/Socket多线程通信/">Socket多线程通信</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/Linux下编译wpa-supplicant/">Linux下编译wpa_supplicant</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/windows下编译wpa-supplicant/">windows下编译wpa_supplicant</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/hello-world/">Hello World</a></li></ul>
 
 
 
@@ -418,14 +450,14 @@
                 2016 VaychLain
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、簡單且強大的網誌框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="簡而不減 Hexo 雙欄網誌主題  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="本站到訪數"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -434,7 +466,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="本頁閱讀量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -467,9 +499,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回頂部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看評論"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="轉到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window

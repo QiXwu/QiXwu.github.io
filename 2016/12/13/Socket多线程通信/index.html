@@ -14,19 +14,22 @@
 <meta name="author" content="VaychLain" />
 
 
-    
-    
 
-
-<meta name="description" content="云神掉渣天啦">
-<meta property="og:type" content="website">
-<meta property="og:title" content="膜拜云神">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="Socket编程​      网络层的“ip地址”可以唯一标识网络中的主机，而传输层的“协议+端口”可以唯一标识主机中的应用程序（进程）。这样利用三元组（ip地址，协议，端口）就可以标识网络的进程了，网络中的进程通信就可以利用这个标志与其它进程进行交互。
+​    socket起源于Unix，而Unix/Linux基本哲学之一就是“一切皆文件”，都可以用“打开open –&amp;gt; 读写write/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Socket多线程通信">
+<meta property="og:url" content="http://yoursite.com/2016/12/13/Socket多线程通信/index.html">
 <meta property="og:site_name" content="膜拜云神">
-<meta property="og:description" content="云神掉渣天啦">
+<meta property="og:description" content="Socket编程​      网络层的“ip地址”可以唯一标识网络中的主机，而传输层的“协议+端口”可以唯一标识主机中的应用程序（进程）。这样利用三元组（ip地址，协议，端口）就可以标识网络的进程了，网络中的进程通信就可以利用这个标志与其它进程进行交互。
+​    socket起源于Unix，而Unix/Linux基本哲学之一就是“一切皆文件”，都可以用“打开open –&amp;gt; 读写write/">
+<meta property="og:image" content="http://images.cnblogs.com/cnblogs_com/skynet/201012/201012122157467258.png">
+<meta property="og:updated_time" content="2016-12-13T08:00:15.514Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="膜拜云神">
-<meta name="twitter:description" content="云神掉渣天啦">
+<meta name="twitter:title" content="Socket多线程通信">
+<meta name="twitter:description" content="Socket编程​      网络层的“ip地址”可以唯一标识网络中的主机，而传输层的“协议+端口”可以唯一标识主机中的应用程序（进程）。这样利用三元组（ip地址，协议，端口）就可以标识网络的进程了，网络中的进程通信就可以利用这个标志与其它进程进行交互。
+​    socket起源于Unix，而Unix/Linux基本哲学之一就是“一切皆文件”，都可以用“打开open –&amp;gt; 读写write/">
+<meta name="twitter:image" content="http://images.cnblogs.com/cnblogs_com/skynet/201012/201012122157467258.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -54,13 +57,11 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
-    <style> .article { opacity: 0;} </style>
-
 
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>膜拜云神</title>
+<title>Socket多线程通信 | 膜拜云神</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -69,8 +70,8 @@
     var yiliaConfig = {
         fancybox: true,
         animate: true,
-        isHome: true,
-        isPost: false,
+        isHome: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -245,9 +246,7 @@
     </div>
     <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-Socket多线程通信" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Socket多线程通信" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/12/13/Socket多线程通信/" class="article-date">
@@ -265,12 +264,19 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/13/Socket多线程通信/">Socket多线程通信</a>
+    <h1 class="article-title" itemprop="name">
+      Socket多线程通信
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -296,285 +302,85 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
   
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Linux下编译wpa-supplicant" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/12/13/Linux下编译wpa-supplicant/" class="article-date">
-      <time datetime="2016-12-13T07:56:39.000Z" itemprop="datePublished">2016-12-13</time>
-</a>
-
-
+    
+    <div class="copyright">
+        <p><span>本文標題:</span><a href="/2016/12/13/Socket多线程通信/">Socket多线程通信</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主頁">VaychLain</a></p>
+        <p><span>發布時間:</span>2016-12-13, 15:59:14</p>
+        <p><span>最後更新:</span>2016-12-13, 16:00:15</p>
+        <p>
+            <span>原始鏈接:</span><a class="post-url" href="/2016/12/13/Socket多线程通信/" title="Socket多线程通信">http://yoursite.com/2016/12/13/Socket多线程通信/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/12/13/Socket多线程通信/　　作者: VaychLain" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"姓名標示-非商業性-相同方式分享 4.0 國際"</a> 轉載請保留原文鏈接及作者。
+        </p>
     </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+
+
+
+    <nav id="article-nav">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/13/Linux下编译wpa-supplicant/">Linux下编译wpa_supplicant</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>一、编译需要用到三个库源码包，分别是wpa_supplicant, openssl, libnl</p>
-<ol>
-<li>wpa_supplicant是我们需要编译的源文件包，目前最新版本是1.1。在终端命令行下输入： wget <a href="http://hostap.epitest.fi/releases/wpa_supplicant-1.1.tar.gz" target="_blank" rel="external">http://hostap.epitest.fi/releases/wpa_supplicant-1.1.tar.gz</a> 进行下载。</li>
-<li>openssl是ssl协议的开源库，wpa_supplicant文档中声明支持的是0.9.8d版本，在实践中最新的1.0.1c版本也能通过编译。在终端命令行下输入： <a href="http://openssl.org/source/openssl-1.0.1c.tar.gz" target="_blank" rel="external">http://openssl.org/source/openssl-1.0.1c.tar.gz</a> 进行下载。</li>
-<li>libnl也是需要的，在编译中我首先尝试的是libnl3，在编译过程中发现它的接口和wpa_supplicant调用的已经有了变化，所以改成较早的libnl1.1。同样，在终端命令行下输入：wget <a href="http://www.infradead.org/~tgr/libnl/files/libnl-1.1.tar.gz" target="_blank" rel="external">http://www.infradead.org/~tgr/libnl/files/libnl-1.1.tar.gz</a> 下载它。</li>
-</ol>
-<p>二、下载完成并解压三个库的源代码，下面可以开始编译：</p>
-<ol>
-<li>编译libnl. </li>
-</ol>
-<p>1.1 tar zxvf libnl-1.1.tar.gz 解压源代码包。进入libnl1.1目录，执行 ./configure 配置编译环境；</p>
-<p>1.2 执行make进行编译，这时会报出编译错误：“../include/netlink_local.h:218:error ‘ULONG_MAX’ undeclared”，在对应文件添加一个头文件<br><code>#include &lt;limits.h&gt;</code>即可解决问题；</p>
-<p>1.3 再次编译通过，执行sudo make install，libnl.so会被安装至/usr/local/lib/目录下，相应的头文件也会被copy到/usr/local/include/netlink下。</p>
-<ol>
-<li>编译openssl</li>
-</ol>
-<p>2.1进入openssl目录，执行make进行编译，完成后执行make install，编译好的openssl库和头文件等被安装在目录/usr/local/ssl下</p>
-<p>Linux下编译安装openssl1.0.1e时遇到的问题</p>
-<p> undefined reference to `rc4_md5_enc’</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1.make clean清理一下</div><div class="line">2.执行 ./config --prefix=/usr/<span class="built_in">local</span> --openssldir=/usr/<span class="built_in">local</span>/openssl</div><div class="line">3.重新编译make;make <span class="built_in">test</span>;make install</div><div class="line">--prefix是指定include和lib install路径 </div><div class="line">--openssldir是指定bin  certs  man  misc  openssl.cnf  private的安装路径</div></pre></td></tr></table></figure>
-<p> POD document had syntax errors at /usr/bin/pod2man line 71.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">make： *** ［install_docs］ 错误 255</div><div class="line">原因分析：这是由于OpenSSL 1.0.1e 与 perl5.18 不兼容。</div><div class="line">解决方法：</div><div class="line">1、有人验证 安装perl 5.16 可以兼容，安排低版本perl 5.16可以解决问题。</div><div class="line">2、删除 pod2man文件：</div><div class="line">sudo rm /usr/bin/pod2man</div></pre></td></tr></table></figure>
-<ol>
-<li>编译wpa_supplicant</li>
-</ol>
-<p>3.1 进入hostapd/wpa_supplicant目录，首先执行cp defconfig .config 拷贝生成编译配置</p>
-<p>3.2 修改配置文件 .config，在”#Uncomment following two linee and fix…”下增加如下语句，用来添加openssl和libnl的头文件和库文件目录，更新编译链接环境变量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CFLAGS += -I/usr/local/include/openssl</div><div class="line">CFLAGS += -I/usr/local/include/netlink</div><div class="line">LIBS += -L/usr/local/lib</div><div class="line">LIBS_p += -L/usr/local/lib</div></pre></td></tr></table></figure>
-<p>3.3 执行make进行编译，成功后生成三个目标文件wpa_supplicant, wpa_cli, wpa_passphrase，至此编译完成。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/usr/local/ssl/lib/libcrypto.a(dso_dlfcn.o): In function `dlfcn_globallookup&apos;: dso_dlfcn.c:(.text+0x21): undefined reference to `dlopen&apos; dso_dlfcn.c:(.text+0x34): undefined reference to `dlsym&apos; dso_dlfcn.c:(.text+0x3f): undefined reference to `dlclose&apos;</div><div class="line">/usr/local/ssl/lib/libcrypto.a(dso_dlfcn.o): In function `dlfcn_bind_func&apos;:</div><div class="line">dso_dlfcn.c:(.text+0x354): undefined reference to `dlsym&apos;</div><div class="line">dso_dlfcn.c:(.text+0x3fb): undefined reference to `dlerror&apos;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-windows下编译wpa-supplicant" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/12/13/windows下编译wpa-supplicant/" class="article-date">
-      <time datetime="2016-12-13T07:56:31.000Z" itemprop="datePublished">2016-12-13</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/13/windows下编译wpa-supplicant/">windows下编译wpa_supplicant</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="编译openssl"><a href="#编译openssl" class="headerlink" title="编译openssl"></a>编译openssl</h2><ul>
-<li><p>OpenSSL的宏定义和VS的wincrypt.h的宏定义冲突，需要按以下方法取消宏定义。<br>在 <code>\include\openssl\x509v3.h</code> 里添加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#ifdef OPENSSL_SYS_WIN32 </div><div class="line">/* Under Win32 these are defined in wincrypt.h */ </div><div class="line">#undef X509_NAME </div><div class="line">#undef X509_CERT_PAIR </div><div class="line">#undef X509_EXTENSIONS </div><div class="line">#endif</div></pre></td></tr></table></figure>
-</li>
-<li><p>安装ActivePerl，打开VS命令提示行，进入OpenSSL路径，依次输入以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">perl Configure VC-WIN32 no-asm --prefix= C:\dev\OpenSSL </div><div class="line">ms\do_ms </div><div class="line">nmake -f ms\ntdll.mak </div><div class="line">nmake -f ms\ntdll.mak install</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>没出现stop就算成功了，out32dll中的libeay32.dll, libeay32.lib, ssleay32.dll, ssleay32.lib就是编译完的库，生成的头文件文件在inc32文件夹而不在include里</p>
-<h5 id="可能遇到的错误"><a href="#可能遇到的错误" class="headerlink" title="可能遇到的错误"></a>可能遇到的错误</h5><ul>
-<li><p><code>NMAKE : fatal error U1077: &#39;ml&#39; : return code &#39;0x1&#39;</code></p>
-<p>解决方法就是下载一个新的MASM</p>
-<p><a href="http://www.microsoft.com/downloads/details.aspx?familyid=7A1C9DA0-0510-44A2-B042-7EF370530C64&amp;displaylang=en" target="_blank" rel="external">MASM8.0</a>可以从微软网站自由获取.</p>
-<p>获取后，得到的是安装包MASMSetup.exe，没有装VC2005的话，无法安装，解决方法如下：</p>
-<p>用winrar解压缩MASMSetup.exe得到：setup.exe</p>
-<p>继续用winrar解压缩setup.exe 得到：vc_masm1.cab</p>
-<p>继续用winrar解压缩vc_masm1.cab得到：FL_ml_exe__….. (很长的文件名)，将<br>这个文件重命名为ml.exe</p>
-<p>测试得到的ml.exe , 应该显示： Microsoft (R) Macro Assembler Version 8.00.50727.104</p>
-<p>将ml.exe 拷贝到工作目录，即可正常使用。</p>
-</li>
-</ul>
-<h2 id="编译WPA-Supplicant"><a href="#编译WPA-Supplicant" class="headerlink" title="编译WPA Supplicant"></a>编译WPA Supplicant</h2><ul>
-<li>下载安装WinPcap</li>
-<li>下载wpa_supplicant-0.7.3.tar.gz并解压(使用2.5版本有大量错误)</li>
-<li>用VS打开 vs2005\wpa_supplicant.sln<ul>
-<li>附加包含目录：”C:\OpenSSL \inc32”</li>
-<li>附加库目录：”D:\OpenSSL\out32dll”<br>将工程中需要用到libeay32MT.lib和ssleay32MT.lib的地方，都换成libeay32.lib和ssleay32.lib</li>
-</ul>
-</li>
-</ul>
-<h2 id="运行WPA-Supplicant"><a href="#运行WPA-Supplicant" class="headerlink" title="运行WPA Supplicant"></a>运行WPA Supplicant</h2><ul>
-<li><p>关于debug时 Libeay32.dll、ssleay32.dll丢失问题</p>
-<p>从openssl 的out目录中将其复制到system32目录下，执行 :</p>
-<p><code>for %1 in (%windir%\system32\*.dll) do regsvr32.exe /s %1</code></p>
-</li>
-<li><p>debug时出现 <code>Binary was not built with debug information.</code></p>
-</li>
-</ul>
-<p>这是由于链接的库无法输出debug信息，可以不用理会，不调试运行即可</p>
-<ul>
-<li>关于wpa_supplicant 运行时参数：<ul>
-<li>-d = 输出 debug信息</li>
-<li>-D = 指定驱动</li>
-<li>-B = 后台运行</li>
-<li>-c = 配置文件</li>
-<li>-i = 接口名称</li>
-</ul>
-</li>
-</ul>
-<p>在接口输入错误时会出现 <code>Failed to initialize driver interface</code>,其中,可以使用win_if_list.exe 来找出正确的接口名称</p>
-<p>Example steps in starting up wpa_supplicant:</p>
-<p><code>&gt; win_if_list.exe</code></p>
-<blockquote>
-<p>ifname: \Device\NPF_GenericNdisWanAdapter</p>
-<p>description: Generic NdisWan adapter</p>
-<p>ifname: \Device\NPF_{769E012B-FD17-4935-A5E3-8090C38E25D2}</p>
-<p>description: Atheros Wireless Network Adapter (Microsoft’s Packet Scheduler)</p>
-<p>ifname: \Device\NPF_{732546E7-E26C-48E3-9871-7537B020A211}</p>
-<p>description: Intel 8255x-based Integrated Fast Ethernet (Microsoft’s Packet Scheduler)</p>
-</blockquote>
-<p>Since the example configuration used Atheros WLAN card, the middle one is the correct interface in this case.In other words, wpa_supplicant would be started with the following command:</p>
-<p><code># wpa_supplicant.exe -i&#39;{769E012B-FD17-4935-A5E3-8090C38E25D2}&#39; -c wpa_supplicant.conf -d</code></p>
-<h2 id="编译wpa-gui"><a href="#编译wpa-gui" class="headerlink" title="编译wpa_gui"></a>编译wpa_gui</h2>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/02/hello-world/" class="article-date">
-      <time datetime="2016-09-02T05:43:29.847Z" itemprop="datePublished">2016-09-02</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/12/13/Linux下编译wpa-supplicant/">
+                    Linux下编译wpa_supplicant
+                </a>
+            </div>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/02/hello-world/">Hello World</a>
-    </h1>
-  
+    </nav>
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
   
 </article>
 
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目錄</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Socket编程"><span class="toc-number">1.</span> <span class="toc-text">Socket编程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#socket"><span class="toc-number">1.1.</span> <span class="toc-text">socket()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bind"><span class="toc-number">1.2.</span> <span class="toc-text">bind()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#listen-amp-connect"><span class="toc-number">1.3.</span> <span class="toc-text">listen()&connect()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#accept"><span class="toc-number">1.4.</span> <span class="toc-text">accept()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#read-amp-write"><span class="toc-number">1.5.</span> <span class="toc-text">read()&write()</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Demo-Linux下基于socket多线程并发通信的实现"><span class="toc-number">1.5.1.</span> <span class="toc-text">Demo : Linux下基于socket多线程并发通信的实现</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
+
+    <script>
+        yiliaConfig.toc = ["隱藏目錄", "顯示目錄", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Socket多线程通信　| 膜拜云神　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
 
 
 
@@ -582,9 +388,33 @@
 
 
 
+    
 
-  
-  
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主頁"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/12/13/Linux下编译wpa-supplicant/" title="下一篇: Linux下编译wpa_supplicant">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/Socket多线程通信/">Socket多线程通信</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/Linux下编译wpa-supplicant/">Linux下编译wpa_supplicant</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/13/windows下编译wpa-supplicant/">windows下编译wpa_supplicant</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
